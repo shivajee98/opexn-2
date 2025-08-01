@@ -10,7 +10,7 @@ export function ExhibitionDemo() {
   }
 
   const handleVisitExhibition = () => {
-    window.open("https://stall-ui-kf9f.vercel.app/", "_blank")
+    window.open("https://stall.opexn.com/", "_blank")
   }
 
   return (
