@@ -17,7 +17,11 @@ export const LazyImage = memo(({ src, alt, width, height, className = "", priori
 
   return (
     <div className={`relative overflow-hidden ${className}`}>
-      {isLoading && <div className="absolute inset-0 bg-gray-800/50 animate-pulse" />}
+       {isLoading && (
+        <div className="absolute inset-0 bg-gray-200 animate-pulse flex items-center justify-center">
+          <div className="w-8 h-8 border-2 border-[#FF4500] border-t-transparent rounded-full animate-spin"></div>
+        </div>
+      )}
       <Image
         src={src || "/placeholder.svg"}
         alt={alt}

@@ -174,11 +174,11 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
   ]);
 
   return (
-    <div className="min-h-screen w-full bg-black select-none">
+    <div className="h-dvh w-full bg-black select-none">
       <div
         className={clsx(
           "embla",
-          "absolute w-full z-9 lg:top-12 md:top-[17vh] top-0"
+          "absolute w-full z-9 lg:top-32 md:top-[17vh] top-10"
         )}
       >
         <div className="embla__viewport" ref={emblaRef}>
