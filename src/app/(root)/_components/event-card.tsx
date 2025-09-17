@@ -1,206 +1,264 @@
-import { Badge } from '@/components/ui/badge'
-import { Button } from '@/components/ui/button'
-import { Card, CardContent } from '@/components/ui/card'
-import { ArrowRight, Calendar, CheckCircle, Clock, MapPin } from 'lucide-react'
-import Image from 'next/image'
-import Link from 'next/link'
-import React from 'react'
+"use client"
+
+import { Badge } from "@/components/ui/badge"
+import { Button } from "@/components/ui/button"
+import { Card, CardContent } from "@/components/ui/card"
+import { ArrowRight, Calendar, CheckCircle, Clock, MapPin, Sparkles, Users } from "lucide-react"
+import Image from "next/image"
+import Link from "next/link"
+import { AnimationWrapper } from "./animation-wrapper"
 
 const EventCard = () => {
+
   return (
-    <div className="grid lg:grid-cols-2 gap-10 lg:gap-16">
-          {/* EdTech Round Table */}
-          <Card className="group hover:shadow-2xl hover:shadow-blue-500/10 transition-all duration-500 bg-white border border-gray-200 overflow-hidden lg:col-span-2 hover:-translate-y-1">
-            <div className="grid lg:grid-cols-2 gap-0">
-              <div className="relative h-72 lg:h-full overflow-hidden">
+    <div className="space-y-12">
+      {/* Featured Event Card */}
+      <AnimationWrapper direction="up" delay={0.2}>
+
+          {/* <div className="absolute inset-0 bg-gradient-to-r from-[#FF4500] via-[#FF6347] to-[#DC143C] rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 p-[2px]">
+            <div className="w-full h-full bg-white rounded-3xl"></div>
+          </div> */}
+
+          <div className="relative z-10 grid lg:grid-cols-5 gap-0 min-h-[500px]">
+            <div className="lg:col-span-2 relative overflow-hidden rounded-t-3xl lg:rounded-l-3xl lg:rounded-tr-none">
+              <div className="relative h-80 lg:h-full bg-gradient-to-br from-gray-900 to-gray-800">
                 <Image
                   src="/edtech-roundtable.png"
                   alt="EdTech Round Table Chandigarh - Tech-Empowered Teaching"
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/40 to-transparent" />
-                <div className="absolute bottom-6 left-6 text-white">
-                  <Badge className="mb-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:shadow-lg hover:shadow-blue-500/25 text-white border-0 px-4 py-1 text-sm font-semibold">
-                    EdTech
+
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/70 to-black/40" />
+
+                {/* <div className="absolute top-6 left-6 z-20">
+                  <Badge className="bg-black/60 backdrop-blur-md hover:bg-black/70 text-white border border-white/30 px-4 py-2 text-sm font-semibold shadow-xl transition-all duration-300">
+                    <Sparkles className="w-4 h-4 mr-2" />
+                    EdTech Innovation
                   </Badge>
-                  <h3 className="text-2xl md:text-3xl font-bold mb-2 text-white">
+                </div> */}
+
+                <div className="absolute bottom-6 left-6 right-6 text-white z-20">
+                  <h3
+                    className="text-2xl md:text-3xl lg:text-4xl font-display font-bold mb-3 text-white drop-shadow-2xl leading-tight"
+                    style={{ textShadow: "2px 2px 8px rgba(0,0,0,0.9), 0 0 20px rgba(0,0,0,0.7)" }}
+                  >
                     Tech-Empowered Teaching
                   </h3>
-                  <p className="text-lg md:text-xl text-gray-200">EdTech Round Table</p>
+                  <p
+                    className="text-lg md:text-xl font-body text-white drop-shadow-lg"
+                    style={{ textShadow: "2px 2px 6px rgba(0,0,0,0.8), 0 0 15px rgba(0,0,0,0.6)" }}
+                  >
+                    EdTech Round Table • Chandigarh
+                  </p>
                 </div>
-              </div>
-
-              <CardContent className="p-8 md:p-10 flex flex-col justify-center bg-gradient-to-br from-white to-gray-50">
-                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-6 gap-3">
-                  <div className="flex items-center space-x-3 text-blue-600">
-                    <Calendar className="w-5 h-5 md:w-6 md:h-6" />
-                    <span className="font-bold text-base md:text-lg">29th August, 2025</span>
-                  </div>
-                  <div className="flex items-center space-x-3 text-purple-600">
-                    <MapPin className="w-5 h-5 md:w-6 md:h-6" />
-                    <span className="font-semibold text-base md:text-lg">Chandigarh</span>
-                  </div>
-                </div>
-
-                <p className="text-gray-700 mb-6 text-base md:text-lg leading-relaxed">
-                  Uniting educators, innovators & leaders to shape NEP-driven, tech-enabled learning for Chandigarh's future.
-                </p>
-
-                <div className="mb-6">
-                  <h4 className="font-bold mb-4 text-gray-900 text-base md:text-lg">Discussion Areas:</h4>
-                  <div className="grid grid-cols-1 gap-3">
-                    <div className="flex items-center space-x-3">
-                      <CheckCircle className="w-4 h-4 md:w-5 md:h-5 text-emerald-500 flex-shrink-0" />
-                      <span className="text-sm md:text-base text-gray-700">Tech & SaaS Impact on Education</span>
-                    </div>
-                    <div className="flex items-center space-x-3">
-                      <CheckCircle className="w-4 h-4 md:w-5 md:h-5 text-emerald-500 flex-shrink-0" />
-                      <span className="text-sm md:text-base text-gray-700">NEP's Impact on Academia</span>
-                    </div>
-                    <div className="flex items-center space-x-3">
-                      <Clock className="w-4 h-4 md:w-5 md:h-5 text-amber-500 flex-shrink-0" />
-                      <span className="text-sm md:text-base text-gray-700">10:00 AM - 1:00 PM</span>
-                    </div>
-                  </div>
-                </div>
-
-                <Link href="https://forms.gle/5UkuGAraqBormcq67">
-                  <Button className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:shadow-lg hover:shadow-blue-500/25 text-white text-base md:text-lg py-3 md:py-4 font-semibold border-0 transition-all duration-300 hover:scale-105">
-                    Register for Round Table
-                    <ArrowRight className="ml-2 w-5 h-5" />
-                  </Button>
-                </Link>
-              </CardContent>
-            </div>
-          </Card>
-
-          {/* Dubai Agri Export Event */}
-          {/* <Card className="group hover:shadow-2xl hover:shadow-emerald-500/10 transition-all duration-500 bg-white border border-gray-200 overflow-hidden hover:-translate-y-1">
-            <div className="relative h-72 md:h-80 overflow-hidden">
-              <Image
-                src="/dubai-agri-export.png"
-                alt="Gateway to Dubai - Agri Export Round Table"
-                fill
-                className="object-cover group-hover:scale-105 transition-transform duration-700"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/40 to-transparent" />
-              <div className="absolute bottom-6 left-6 text-white">
-                <Badge className="mb-3 bg-gradient-to-r from-emerald-500 to-cyan-500 hover:shadow-lg hover:shadow-emerald-500/25 text-white border-0 px-4 py-1 text-sm font-semibold">
-                  Agri Export
-                </Badge>
-                <h3 className="text-xl md:text-2xl font-bold mb-2 text-white">
-                  Gateway to Dubai
-                </h3>
-                <p className="text-base md:text-lg text-gray-200">Agri Export Round Table</p>
               </div>
             </div>
 
-            <CardContent className="p-6 md:p-8 bg-gradient-to-br from-white to-gray-50">
-              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-6 gap-3">
-                <div className="flex items-center space-x-3 text-emerald-600">
-                  <Calendar className="w-5 h-5" />
-                  <span className="font-bold text-sm md:text-base">5th August, 2025*</span>
+            <CardContent className="lg:col-span-3 p-8 md:p-10 lg:p-12 flex flex-col justify-center bg-white backdrop-blur-sm rounded-t-3xl lg:rounded-r-3xl lg:rounded-tl-none">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-8 gap-4">
+                <div className="flex items-center space-x-3 text-[#FF4500] bg-[#FF4500]/10 px-4 py-3 rounded-2xl border border-[#FF4500]/20">
+                  <Calendar className="w-6 h-6" />
+                  <div>
+                    <span className="font-display font-bold text-lg block text-[#FF4500]">29th August, 2025</span>
+                    <span className="text-sm text-gray-700">Friday</span>
+                  </div>
                 </div>
-                <div className="flex items-center space-x-3 text-cyan-600">
-                  <MapPin className="w-5 h-5" />
-                  <span className="font-semibold text-sm md:text-base">New Delhi, India</span>
+
+                <div className="flex items-center space-x-3 text-[#FF6347] bg-[#FF6347]/10 px-4 py-3 rounded-2xl border border-[#FF6347]/20">
+                  <MapPin className="w-6 h-6" />
+                  <div>
+                    <span className="font-display font-semibold text-lg block text-[#FF6347]">Chandigarh</span>
+                    <span className="text-sm text-gray-700">India</span>
+                  </div>
                 </div>
               </div>
 
-              <p className="text-gray-700 mb-6 text-sm md:text-base leading-relaxed">
-                Connect with UAE trade officials, institutional buyers, and agri-tech ecosystem for export opportunities to Dubai markets.
+              <p className="font-body text-gray-800 mb-8 text-lg lg:text-xl leading-relaxed">
+                Uniting educators, innovators & leaders to shape NEP-driven, tech-enabled learning for Chandigarh's
+                future. Join the conversation that's transforming education.
               </p>
 
-              <div className="mb-6">
-                <h4 className="font-bold mb-4 text-gray-900 text-sm md:text-base">Key Components:</h4>
-                <div className="grid grid-cols-1 gap-2">
-                  <div className="flex items-center space-x-3">
-                    <CheckCircle className="w-4 h-4 text-emerald-500 flex-shrink-0" />
-                    <span className="text-xs md:text-sm text-gray-700">Export Stakeholder Dialogue</span>
+              <div className="mb-8">
+                <h4 className="font-display font-bold mb-6 text-gray-900 text-xl flex items-center">
+                  <Users className="w-5 h-5 mr-2 text-[#FF4500]" />
+                  Discussion Areas
+                </h4>
+
+                <div className="grid grid-cols-1 gap-4">
+                  <div className="flex items-center space-x-4 p-4 bg-gradient-to-r from-emerald-50 to-emerald-100/50 rounded-2xl border border-emerald-200/50">
+                    <CheckCircle className="w-6 h-6 text-emerald-600 flex-shrink-0" />
+                    <span className="font-body text-base text-gray-800 font-medium">
+                      Tech & SaaS Impact on Education
+                    </span>
                   </div>
-                  <div className="flex items-center space-x-3">
-                    <CheckCircle className="w-4 h-4 text-emerald-500 flex-shrink-0" />
-                    <span className="text-xs md:text-sm text-gray-700">UAE Expert Insights & Roadmap</span>
+
+                  <div className="flex items-center space-x-4 p-4 bg-gradient-to-r from-blue-50 to-blue-100/50 rounded-2xl border border-blue-200/50">
+                    <CheckCircle className="w-6 h-6 text-blue-600 flex-shrink-0" />
+                    <span className="font-body text-base text-gray-900 font-medium">NEP's Impact on Academia</span>
                   </div>
-                  <div className="flex items-center space-x-3">
-                    <CheckCircle className="w-4 h-4 text-emerald-500 flex-shrink-0" />
-                    <span className="text-xs md:text-sm text-gray-700">Market and Policy Access</span>
+
+                  <div className="flex items-center space-x-4 p-4 bg-gradient-to-r from-amber-50 to-amber-100/50 rounded-2xl border border-amber-200/50">
+                    <Clock className="w-6 h-6 text-amber-600 flex-shrink-0" />
+                    <span className="font-body text-base text-gray-800 font-medium">10:00 AM - 1:00 PM</span>
                   </div>
                 </div>
               </div>
 
-              <Link href="https://forms.gle/3cZoi2xMswg4D658A">
-                <Button className="w-full bg-gradient-to-r from-emerald-500 to-cyan-500 hover:shadow-lg hover:shadow-emerald-500/25 text-white text-sm md:text-base py-3 font-semibold border-0 transition-all duration-300 hover:scale-105">
-                  Register for Round Table
-                  <ArrowRight className="ml-2 w-4 h-4" />
+              <Link href="https://forms.gle/5UkuGAraqBormcq67" className="group/button">
+                <Button className="w-full bg-gradient-to-r from-[#DC143C] to-[#FF4500] hover:from-[#B22222] hover:to-[#DC143C] text-white text-lg py-6 font-display font-semibold border-0 transition-all duration-300 shadow-2xl hover:shadow-3xl rounded-2xl relative overflow-hidden">
+                  <span
+                    className="relative z-10 flex items-center justify-center text-white font-bold"
+                    style={{ textShadow: "1px 1px 2px rgba(0,0,0,0.5)" }}
+                  >
+                    Register for Round Table
+                    <ArrowRight className="ml-3 w-5 h-5 group-hover/button:translate-x-1 transition-transform duration-300" />
+                  </span>
+
+                  <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover/button:translate-x-[100%] transition-transform duration-1000"></div>
                 </Button>
               </Link>
             </CardContent>
-          </Card> */}
+          </div>
+      </AnimationWrapper>
 
-          {/* Women Entrepreneurs Training */}
-          {/* <Card className="group hover:shadow-2xl hover:shadow-rose-500/10 transition-all duration-500 bg-white border border-gray-200 overflow-hidden hover:-translate-y-1">
-            <div className="relative h-72 md:h-80 overflow-hidden">
-              <Image
-                src="/women-training-program.png"
-                alt="Women Entrepreneurs Training Program - From Local to Global"
-                fill
-                className="object-cover group-hover:scale-105 transition-transform duration-700"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/40 to-transparent" />
-              <div className="absolute bottom-6 left-6 text-white">
-                <Badge className="mb-3 bg-gradient-to-r from-rose-500 to-pink-500 hover:shadow-lg hover:shadow-rose-500/25 text-white border-0 px-4 py-1 text-sm font-semibold">
-                  Women Empowerment
-                </Badge>
-                <h3 className="text-xl md:text-2xl font-bold mb-2 text-white">
-                  From Local to Global
-                </h3>
-                <p className="text-base md:text-lg text-gray-200">3 Day Training Program</p>
+      {/* <div className="space-y-8">
+        <div className="text-center">
+          <AnimationWrapper
+            direction="up"
+            delay={0.3}
+            className="inline-flex items-center justify-center px-6 py-3 mb-6 text-sm font-semibold text-[#FF4500] bg-white/90 backdrop-blur-md rounded-full border border-[#FF4500]/30 shadow-xl hover:scale-105 transition-transform duration-300"
+          >
+            <span className="w-2 h-2 bg-[#FF4500] rounded-full mr-3 animate-pulse"></span>
+            Our Activities
+          </AnimationWrapper>
+          <h3 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold mb-4 text-transparent bg-gradient-to-r from-[#FF4500] via-[#FF6347] to-[#DC143C] bg-clip-text">
+            Comprehensive Programs
+          </h3>
+          <p className="text-lg text-gray-700 max-w-3xl mx-auto">
+            Explore our diverse range of activities designed to foster innovation, networking, and growth across
+            multiple sectors.
+          </p>
+        </div>
+
+
+        <StaggerContainer className="flex flex-wrap justify-center gap-2 mb-8" staggerDelay={0.05}>
+          {ACTIVITIES.map((activity, index) => (
+            <StaggerItem key={activity.id} direction="scale">
+              <button
+                onClick={() => setSelectedActivity(index)}
+                className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 hover:scale-105 ${
+                  selectedActivity === index
+                    ? "bg-gradient-to-r from-[#FF4500] to-[#FF6347] text-white shadow-lg scale-105"
+                    : "bg-white/80 text-gray-700 hover:bg-white hover:text-[#FF4500] border border-gray-200 hover:border-[#FF4500]/30"
+                }`}
+              >
+                {activity.title}
+              </button>
+            </StaggerItem>
+          ))}
+        </StaggerContainer>
+
+
+        <AnimationWrapper direction="up" delay={0.4}>
+          <Card className="group relative overflow-hidden bg-white/95 backdrop-blur-xl border-0 shadow-2xl rounded-3xl hover:shadow-3xl hover:-translate-y-1 transition-all duration-500">
+            <div className="absolute inset-0 bg-gradient-to-r from-[#FF4500]/5 via-[#FF6347]/5 to-[#DC143C]/5 rounded-3xl"></div>
+
+            <div className="relative z-10 grid lg:grid-cols-2 gap-0 min-h-[400px]">
+              <div className="relative overflow-hidden rounded-t-3xl lg:rounded-l-3xl lg:rounded-tr-none">
+                <div className="relative h-80 lg:h-full bg-gradient-to-br from-[#FF4500] to-[#FF6347] flex items-center justify-center group-hover:scale-105 transition-transform duration-700">
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#FF4500]/90 to-[#FF6347]/90"></div>
+                  <div className="relative z-10 text-center text-white p-8">
+                    <div className="w-20 h-20 mx-auto mb-6 bg-white/20 backdrop-blur-md rounded-2xl flex items-center justify-center hover:rotate-12 transition-transform duration-300">
+                      {(() => {
+                        const IconComponent = ACTIVITIES[selectedActivity].icon
+                        return IconComponent ? <IconComponent className="w-10 h-10 text-white" /> : null
+                      })()}
+                    </div>
+                    <h4 className="text-2xl md:text-3xl font-display font-bold mb-4">
+                      {ACTIVITIES[selectedActivity].title}
+                    </h4>
+                    <p className="text-lg opacity-90">{ACTIVITIES[selectedActivity].description}</p>
+                  </div>
+                </div>
+              </div>
+
+              <CardContent className="p-8 md:p-10 lg:p-12 flex flex-col justify-center bg-white">
+                <div className="space-y-6">
+                  <div>
+                    <h5 className="text-xl font-display font-bold text-[#FF4500] mb-4 flex items-center">
+                      <CheckCircle className="w-5 h-5 mr-2" />
+                      Key Features
+                    </h5>
+                    <StaggerContainer className="space-y-3" staggerDelay={0.1}>
+                      {ACTIVITIES[selectedActivity].features.map((feature, index) => (
+                        <StaggerItem key={index} direction="left">
+                          <div className="flex items-start space-x-3 p-3 bg-gradient-to-r from-[#FF4500]/5 to-[#FF6347]/5 rounded-xl border border-[#FF4500]/10 hover:border-[#FF4500]/20 hover:bg-[#FF4500]/10 transition-all duration-300">
+                            <div className="w-2 h-2 bg-[#FF4500] rounded-full mt-2 flex-shrink-0 animate-pulse"></div>
+                            <span className="text-gray-800 font-medium">{feature}</span>
+                          </div>
+                        </StaggerItem>
+                      ))}
+                    </StaggerContainer>
+                  </div>
+
+                  <div>
+                    <h5 className="text-xl font-display font-bold text-[#FF6347] mb-4 flex items-center">
+                      <Sparkles className="w-5 h-5 mr-2" />
+                      Expected Outcomes
+                    </h5>
+                    <StaggerContainer className="space-y-3" staggerDelay={0.1}>
+                      {ACTIVITIES[selectedActivity].outcomes.map((outcome, index) => (
+                        <StaggerItem key={index} direction="right">
+                          <div className="flex items-start space-x-3 p-3 bg-gradient-to-r from-[#FF6347]/5 to-[#FF4500]/5 rounded-xl border border-[#FF6347]/10 hover:border-[#FF6347]/20 hover:bg-[#FF6347]/10 transition-all duration-300">
+                            <div className="w-2 h-2 bg-[#FF6347] rounded-full mt-2 flex-shrink-0 animate-pulse"></div>
+                            <span className="text-gray-800 font-medium">{outcome}</span>
+                          </div>
+                        </StaggerItem>
+                      ))}
+                    </StaggerContainer>
+                  </div>
+                </div>
+              </CardContent>
+            </div>
+          </Card>
+        </AnimationWrapper>
+      </div> */}
+
+      {/* Contact Card */}
+      {/* <AnimationWrapper direction="up" delay={0.5}>
+        <Card className="bg-gradient-to-r from-[#FF4500] to-[#FF6347] text-white rounded-3xl shadow-2xl overflow-hidden hover:shadow-3xl transition-all duration-500">
+          <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent"></div>
+          <CardContent className="relative z-10 p-8 md:p-12 text-center">
+            <h4 className="text-2xl md:text-3xl font-display font-bold mb-6">Get in Touch</h4>
+            <p className="text-lg mb-8 opacity-90 max-w-2xl mx-auto">
+              Ready to join our community? Connect with us to learn more about upcoming events and opportunities.
+            </p>
+
+            <div className="grid md:grid-cols-3 gap-6 mb-8">
+              <div className="flex items-center justify-center space-x-3 p-4 bg-white/20 backdrop-blur-md rounded-2xl">
+                <Phone className="w-5 h-5" />
+                <span className="font-medium">+91 84390 56300</span>
+              </div>
+              <div className="flex items-center justify-center space-x-3 p-4 bg-white/20 backdrop-blur-md rounded-2xl">
+                <Mail className="w-5 h-5" />
+                <span className="font-medium">Info.opexn@gmail.com</span>
+              </div>
+              <div className="flex items-center justify-center space-x-3 p-4 bg-white/20 backdrop-blur-md rounded-2xl">
+                <Globe className="w-5 h-5" />
+                <span className="font-medium">www.opexn.com</span>
               </div>
             </div>
 
-            <CardContent className="p-6 md:p-8 bg-gradient-to-br from-white to-gray-50">
-              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-6 gap-3">
-                <div className="flex items-center space-x-3 text-rose-600">
-                  <Calendar className="w-5 h-5" />
-                  <span className="font-bold text-sm md:text-base">12-14th August, 2025</span>
-                </div>
-                <div className="flex items-center space-x-3 text-purple-600">
-                  <Clock className="w-5 h-5" />
-                  <span className="font-semibold text-sm md:text-base">3 Days</span>
-                </div>
-              </div>
+            <Button className="bg-white text-[#FF4500] hover:bg-gray-100 px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 shadow-xl hover:shadow-2xl">
+              Contact Us Today
+              <ArrowRight className="ml-2 w-5 h-5" />
+            </Button>
+          </CardContent>
+        </Card>
+      </AnimationWrapper> */}
 
-              <p className="text-gray-700 mb-6 text-sm md:text-base leading-relaxed">
-                Empowering women entrepreneurs & SHGs in gifts & handicrafts business for global markets.
-              </p>
-
-              <div className="mb-6">
-                <h4 className="font-bold mb-4 text-gray-900 text-sm md:text-base">Focus Areas:</h4>
-                <div className="grid grid-cols-1 gap-2">
-                  <div className="flex items-center space-x-3">
-                    <CheckCircle className="w-4 h-4 text-rose-500 flex-shrink-0" />
-                    <span className="text-xs md:text-sm text-gray-700">Product Quality & Market Readiness</span>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <CheckCircle className="w-4 h-4 text-rose-500 flex-shrink-0" />
-                    <span className="text-xs md:text-sm text-gray-700">E-Commerce & Digital Selling</span>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <CheckCircle className="w-4 h-4 text-rose-500 flex-shrink-0" />
-                    <span className="text-xs md:text-sm text-gray-700">Export Preparedness</span>
-                  </div>
-                </div>
-              </div>
-
-              <Button className="w-full bg-gradient-to-r from-rose-500 to-pink-500 hover:shadow-lg hover:shadow-rose-500/25 text-white text-sm md:text-base py-3 font-semibold border-0 transition-all duration-300 hover:scale-105">
-                Register for Training
-                <ArrowRight className="ml-2 w-4 h-4" />
-              </Button>
-            </CardContent>
-          </Card> */}
-        </div>
+    </div>
   )
 }
 
