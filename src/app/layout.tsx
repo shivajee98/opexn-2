@@ -1,15 +1,27 @@
 import type { Metadata, Viewport } from "next";
-import { Geist } from "next/font/google";
+import { Poppins, Source_Serif_4 } from "next/font/google"
 import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 
 // Optimized font loading - only load primary font
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const poppins = Poppins({
   subsets: ["latin"],
+  variable: "--font-poppins",
+  weight: ["300", "400", "500", "600", "700"],
   display: "swap",
   preload: true,
-});
+  fallback: ['system-ui', 'arial'],
+})
+
+const sourceSerif = Source_Serif_4({
+  subsets: ["latin"],
+  variable: "--font-source-serif",
+  weight: ["300", "400", "500", "600"],
+  display: "swap",
+  preload: true,
+  fallback: ['serif'],
+})
+
 
 // Enhanced viewport configuration
 export const viewport: Viewport = {
@@ -131,19 +143,19 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en" suppressHydrationWarning>
         <head>
-          {/* Preload critical resources */}
-          {/* <link
-            rel="preload"
-            href="/opexn-hero-image.webp"
-            as="image"
-            type="image/webp"
-          /> */}
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link
             rel="preconnect"
             href="https://fonts.gstatic.com"
             crossOrigin="anonymous"
           />
+
+          {/* Fallback fonts in case Google Fonts fail to load */}
+          <style>{`
+            .font-loading-fallback {
+              font-family: system-ui, -apple-system, sans-serif;
+            }
+          `}</style>
 
           {/* DNS prefetch for external resources */}
           <link rel="dns-prefetch" href="//clerk.dev" />
@@ -176,14 +188,7 @@ export default function RootLayout({
             }}
           />
         </head>
-        <body
-          className={`${geistSans.variable} antialiased`}
-          suppressHydrationWarning
-        >
-          <main className="overflow-x-hidden bg-background text-foreground min-h-screen">
-            {children}
-          </main>
-        </body>
+       <body className={`${poppins.variable} ${sourceSerif.variable} antialiased font-sans`}>{children}</body>
       </html>
     </ClerkProvider>
   );

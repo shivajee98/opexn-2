@@ -17,6 +17,7 @@ import { cn } from "@/lib/utils";
 import { motion } from "motion/react";
 import { LazyImage } from "../lazy-image";
 import { ChevronLeft, ChevronRight, Pause, Play } from "@/components/icons/micro";
+import Image from "next/image";
 
 type PropType = {
   slides: {
@@ -173,11 +174,11 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
   ]);
 
   return (
-    <div className="min-h-screen w-full bg-black select-none">
+    <div className="h-dvh w-full bg-black select-none">
       <div
         className={clsx(
           "embla",
-          "absolute w-full z-9 lg:top-12 md:top-[17vh] top-0"
+          "absolute w-full z-9 lg:top-32 md:top-[17vh] top-10"
         )}
       >
         <div className="embla__viewport" ref={emblaRef}>
@@ -220,7 +221,7 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
                   <div className="embla__parallax rounded-lg">
                     <div className={clsx("embla__parallax__layer relative")}>
                       <LazyImage
-                        className="embla__slide__img embla__parallax__img"
+                        className="embla__slide__img embla__parallax__img "
                         src={item.src}
                         alt={item.heading}
                         width={1200}
